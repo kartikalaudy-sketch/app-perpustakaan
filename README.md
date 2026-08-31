@@ -57,3 +57,21 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# App Perpustakaan
+
+Aplikasi web sederhana untuk manajemen data perpustakaan berbasi Laravel.
+
+## Cara Menjalankan Project secara Lokal
+
+1. Buka terminal dan clone repository: `git clone https://github.com/[USERNAME-GITHUB-KAMU]/app-perpustakaan.git`
+2. Masuk ke direktori project: `cd app-perpustakaan`
+3. Install semua dependensi PHP: `composer install`
+4. Buat file environment dengan menyalin template bawaan: `cp .env.example .env`
+5. Generate application key: `php artisan key:generate`
+6. Sesuaikan konfigurasi database di dalam file `.env` jika diperlukan.
+7. Jalankan development server: `php artisan serve`
+8. Buka browser dan akses URL: `http://127.0.0.1:8000`
+
+## Pemahaman Konsep MVC (Model, View, Controller)
+Model bertugas sebagai pengelola data yang berinteraksi langsung dengan database, sedangkan View berfungsi murni untuk merender tampilan visual (HTML) yang akan dilihat oleh pengguna. Di antara keduanya, Controller bertindak sebagai otak atau jembatan yang menerima *request* dari pengguna, memproses data melalui Model, lalu mengirimkan hasil akhirnya untuk ditampilkan oleh View.
