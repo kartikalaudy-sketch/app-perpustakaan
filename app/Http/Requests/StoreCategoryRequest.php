@@ -1,5 +1,5 @@
 <?php
-
+//Minggu 3 sudah dikerjakan namun commit dengan minggu 4
 namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
