@@ -1,3 +1,4 @@
+{{-- File: resources/views/members/create.blade.php --}}
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -18,7 +19,7 @@
     <form action="{{ route('members.store') }}" method="POST">
         @csrf
 
-        <label for="nama">Nama Anggota</label>
+        <label for="nama">Nama</label>
         <input type="text" name="nama" id="nama" value="{{ old('nama') }}">
         @error('nama')
             <div class="error">{{ $message }}</div>
@@ -50,9 +51,8 @@
 
         <label for="status">Status</label>
         <select name="status" id="status">
-            <option value="">-- Pilih Status --</option>
-            <option value="Aktif" @selected(old('status') == 'Aktif')>Aktif</option>
-            <option value="Nonaktif" @selected(old('status') == 'Nonaktif')>Nonaktif</option>
+            <option value="aktif" @selected(old('status', 'aktif') == 'aktif')>Aktif</option>
+            <option value="nonaktif" @selected(old('status') == 'nonaktif')>Nonaktif</option>
         </select>
         @error('status')
             <div class="error">{{ $message }}</div>

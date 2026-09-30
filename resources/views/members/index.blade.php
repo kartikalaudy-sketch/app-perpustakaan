@@ -4,12 +4,7 @@
 @section('title', 'Daftar Anggota')
 
 @section('content')
-<body>
     <h1>Daftar Anggota</h1>
-
-    @if (session('success'))
-        <div class="success">{{ session('success') }}</div>
-    @endif
 
     <p><a href="{{ route('members.create') }}" class="btn">+ Tambah Anggota</a></p>
 
@@ -21,7 +16,6 @@
                 <th>NIM</th>
                 <th>Email</th>
                 <th>No. Telepon</th>
-                <th>Alamat</th>
                 <th>Status</th>
                 <th>Aksi</th>
             </tr>
@@ -34,12 +28,13 @@
                     <td>{{ $member['nim'] }}</td>
                     <td>{{ $member['email'] }}</td>
                     <td>{{ $member['nomor_telepon'] }}</td>
-                    <td>{{ $member['alamat'] }}</td>
-                    <td>{{ $member['status'] }}</td>
+                    <td>{{ ucfirst($member['status']) }}</td>
                     <td>
+                        <a href="{{ route('members.show', $member['id']) }}">Detail</a>
+                        |
                         <a href="{{ route('members.edit', $member['id']) }}">Edit</a>
                         |
-                        <form style="display:inline" action="{{ route('members.destroy', $member['id']) }}" method="POST">
+                        <form class="inline" action="{{ route('members.destroy', $member['id']) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit">Hapus</button>
@@ -48,11 +43,11 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8">Belum ada data anggota.</td>
+                    <td colspan="7">Belum ada data anggota.</td>
                 </tr>
             @endforelse
         </tbody>
     </table>
 
-    <p><em>Catatan: data di atas masih data dummy (array statis di Controller).</em></p>
+    {{ $members->links() }}
 @endsection
